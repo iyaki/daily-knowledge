@@ -1,0 +1,294 @@
+/* Media queries tomadas de: https://getbootstrap.com/docs/5.3/layout/breakpoints/#media-queries
+Segunda opinión: https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
+
+/* ----------------- Start defaults ----------------- */
+
+:root {
+	font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+	font-size: var(--base-font-size, 16px);
+	--base-font-size: 18px;
+	--main-content-width: 60ch;
+
+	@media screen and (min-width: 1400px) {
+		--base-font-size: 23px;
+	}
+
+	color-scheme: light dark;
+
+	--background-color-light: whitesmoke;
+	--text-color-light: #383838;
+	--link-color-light: steelblue;
+	--link-hover-color-light: midnightblue;
+	--link-visited-color-light: slateblue;
+	--box-border-color-light: black;
+
+	--background-color-dark: #34342f;
+	--text-color-dark: whitesmoke;
+	--link-color-dark: lightskyblue;
+	--link-hover-color-dark: deepskyblue;
+	--link-visited-color-dark: plum;
+	--box-border-color-dark: darkgray;
+
+	--background-color: Canvas;
+	--text-color: CanvasText;
+	--link-color: LinkText;
+	--link-hover-color: ActiveText;
+	--link-visited-color: VisitedText;
+	--box-border-color: ButtonBorder;
+
+	@media (prefers-color-scheme: light) {
+		--background-color: var(--background-color-light);
+		--text-color: var(--text-color-light);
+		--link-color: var(--link-color-light);
+		--link-hover-color: var(--link-hover-color-light);
+		--link-visited-color: var(--link-visited-color-light);
+		--box-border-color: var(--box-border-color-light);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		--background-color: var(--background-color-dark);
+		--text-color: var(--text-color-dark);
+		--link-color: var(--link-color-dark);
+		--link-hover-color: var(--link-hover-color-dark);
+		--link-visited-color: var(--link-visited-color-dark);
+		--box-border-color: var(--box-border-color-dark);
+	}
+}
+
+/* Box sizing rules */
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+	-moz-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	line-height: 1.5;
+	background-color: var(--background-color);
+	color: var(--text-color);
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p, figure, blockquote, dl, dd {
+	margin-block-end: 0;
+}
+
+/* Balance text wrapping on headings */
+h1, h2, h3, h4 {
+	text-wrap: balance;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4, button, input, label {
+	line-height: 1.1;
+}
+
+/* Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+	letter-spacing: 0.03em;
+	hyphens: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button, textarea, select {
+	font-family: inherit;
+	font-size: inherit;
+}
+
+a {
+	color: var(--link-color);
+}
+
+a:hover {
+	color: var(--link-hover-color);
+}
+
+a:visited {
+	color: var(--link-visited-color);
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+	scroll-margin-block: 5ex;
+}
+
+/* ----------------- End defaults ----------------- */
+
+/* ----------------- Start layout ----------------- */
+
+body > header {
+	text-align: center;
+	margin-bottom: 3em;
+
+	h1 {
+	margin-top: 0;
+
+	}
+}
+
+main {
+	margin: auto 1em;
+	text-align: center;
+	min-height: 100dvh;
+
+	& > header {
+		width: 100%;
+		display: inline-block;
+		max-width: calc(var(--main-content-width) + 6em);
+		margin-bottom: 2em;
+	}
+
+	& > article {
+		display: inline-block;
+		width: 90%;
+
+		iframe {
+			width: inherit;
+			height: calc(100vh - 5%);
+		}
+
+		& > header {
+			text-align: center;
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	body {
+		display: grid;
+		grid-template-columns: 2fr 5fr 2fr;
+		grid-template-areas: ". main . ";
+	}
+
+	body > header {
+		position: fixed;
+		position: sticky;
+		height: fit-content;
+		top: 0;
+		text-align: left;
+		padding-left: 1em;
+	}
+
+	main {
+		grid-area: main;
+	}
+
+	footer {
+		position: fixed;
+		bottom: 0;
+	}
+}
+
+/* ----------------- End layout ----------------- */
+
+/* ----------------- Start components ----------------- */
+
+.logo {
+	height: 10em;
+	display: block;
+}
+
+h1 {
+	font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
+	font-size: 2.2em;
+	line-height: 0.95em;
+}
+
+main p {
+	text-align: justify;
+	text-wrap: pretty;
+}
+
+main > header > h2 {
+	font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+}
+
+main > header > details {
+	margin-top: 1em;
+	padding: 0.5em 1.5em;
+	border-radius: 15px;
+	background-color: gainsboro;
+	text-align: left;
+	width: 100%;
+}
+
+main header details summary {
+	padding: 0 1em;
+	border-radius: 0.25em;
+	color: var(--text-color-light);
+
+	span {
+		transition: padding-left 0.5s;
+		display: inline-block;
+		padding: 0.25em 0;
+	}
+}
+
+main header details summary:hover {
+	background-color: lightgray;
+
+	span {
+		padding-left: 0.5em;
+	}
+}
+
+main article h3 {
+	font-size: 1.5em;
+}
+
+.contact__list {
+	list-style: none;
+	padding-left: 0;
+	text-align: center;
+	font-style: normal
+}
+
+.contact__list > li {
+	display: inline-block;
+	margin: auto 1em;
+
+	@media screen and (min-width: 768px) {
+		display: block;
+	}
+}
+
+.contact__list a {
+	display: flex;
+	align-items: stretch;
+	text-decoration: none;
+}
+
+.contact__list :is(a, a:visited, a:hover, a:active) {
+	color: var(--text-color);
+}
+
+.contact__list svg {
+	height: min-content;
+}
+
+/* ----------------- End components ----------------- */
+
+/* ----------------- Start Utils ----------------- */
+
+.sr-only {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+/* ----------------- End Utils ----------------- */
