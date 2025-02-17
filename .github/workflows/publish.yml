@@ -36,6 +36,8 @@ jobs:
         with:
           node-version: 20
       - name: build
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
         run: |
           npm install --save-exact
           cd random-knowledge/ || exit 1
