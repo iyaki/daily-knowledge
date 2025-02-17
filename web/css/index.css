@@ -156,7 +156,7 @@ main {
 
 		iframe {
 			width: inherit;
-			height: calc(100vh - 5%);
+			height: 95vh;
 		}
 
 		& > header {

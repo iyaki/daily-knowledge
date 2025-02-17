@@ -17,7 +17,7 @@ eleventyExcludeFromCollections: true
 	<icon>{{ site.url }}/images/logo.png</icon>
 	<logo>{{ site.url }}/images/logo.png</logo>
 	<entry>
-		<id>{{ site.url }}/{{ env.ENTRY.URI | | slugify }}</id>
+		<id>{{ site.url }}/{{ env.ENTRY.URI | slugify }}</id>
 		<title><![CDATA[{{ env.ENTRY.TITLE }}]]></title>
 		<summary><![CDATA[{{ env.ENTRY.TITLE }}]]></summary>
 		<content>{{ env.ENTRY.URI }}</content>
