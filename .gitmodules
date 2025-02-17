@@ -1,0 +1,3 @@
+[submodule "random-knowledge"]
+	path = random-knowledge
+	url = https://github.com/iyaki/random-knowledge

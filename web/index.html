@@ -39,7 +39,7 @@
 <header>
 	<h2>Artículo del día</h2>
 	<time datetime="{{ DATE_NOW | date: "%Y-%m-%d" }}">{{ DATE_NOW | date: "%d/%m/%Y" }}</time>
-	<h3>{{ env.ENTRY.TITLE }}</h3>
+	<h3>{{ entry.title }}</h3>
 
 	<details>
 		<summary><span>Saber mas</span></summary>
@@ -55,14 +55,14 @@
 
 <article>
 	<header>
-		<a href="{{ env.ENTRY.URI }}" title="Link al artículo original">
+		<a href="{{ entry.uri }}" title="Link al artículo original">
 			Artículo original
 			<svg height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align: middle;" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 5H8.2c-1.12 0-1.68 0-2.108.218a1.999 1.999 0 0 0-.874.874C5 6.52 5 7.08 5 8.2v7.6c0 1.12 0 1.68.218 2.108a2 2 0 0 0 .874.874c.427.218.987.218 2.105.218h7.606c1.118 0 1.677 0 2.104-.218.377-.192.683-.498.875-.874.218-.428.218-.987.218-2.105V14m1-5V4m0 0h-5m5 0-7 7"/></svg>
 		</a>
 	</header>
 	<iframe
 		title="Incrustado web del artículo"
-		src="{{ env.ENTRY.URI }}"
+		src="{{ entry.uri }}"
 		loading="lazy"
 	></iframe>
 </article>

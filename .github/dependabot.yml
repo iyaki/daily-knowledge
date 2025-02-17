@@ -12,3 +12,9 @@ updates:
     directory: "/"
     schedule:
       interval: monthly
+
+  # random-knowledge subrepo
+  - package-ecosystem: gitsubmodule
+    directory: "/"
+    schedule:
+      interval: monthly
