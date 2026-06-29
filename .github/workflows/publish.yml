@@ -40,9 +40,6 @@ jobs:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
         run: |
           npm install --save-exact
-          cd random-knowledge/ || exit 1
-          npm install --save-exact
-          cd ..
           npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v6
