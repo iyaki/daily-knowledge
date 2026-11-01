@@ -14,7 +14,7 @@
     "@divriots/jampack": "^0.34.2",
     "@notionhq/client": "5.28.0",
     "cssnano": "^9.9.0",
-    "dotenv": "^18.0.4",
+    "dotenv": "^18.0.9",
     "html-minifier-terser": "^7.2.0",
     "minify-xml": "^4.5.2",
     "postcss": "^8.5.32",
