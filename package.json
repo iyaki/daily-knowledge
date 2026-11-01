@@ -12,7 +12,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",
     "@divriots/jampack": "^0.34.2",
-    "@notionhq/client": "5.26.0",
+    "@notionhq/client": "5.28.0",
     "cssnano": "^9.9.0",
     "dotenv": "^18.0.4",
     "html-minifier-terser": "^7.2.0",
